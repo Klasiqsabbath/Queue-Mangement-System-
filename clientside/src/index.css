@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Outfit;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+}
+
+.dark body,
+.dark #root {
+  @apply bg-slate-950 text-slate-100;
+}
+
+.dark .text-gray-600 {
+  color: rgb(226 232 240) !important;
+}
+
+.dark .text-gray-500 {
+  color: rgb(203 213 225) !important;
+}
+
+.dark .text-gray-700 {
+  color: rgb(248 250 252) !important;
+}
+
+.dark .text-gray-800 {
+  color: rgb(255 255 255) !important;
+}
+
+.dark .text-gray-900 {
+  color: rgb(255 255 255) !important;
+}
+
+.dark .text-zinc-600,
+.dark .text-zinc-700,
+.dark .text-zinc-800 {
+  color: rgb(248 250 252) !important;
+}
+
+.dark .bg-white {
+  background-color: rgb(15 23 42) !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: rgb(30 41 59) !important;
+}
+
+.dark .border-gray-300,
+.dark .border-gray-400,
+.dark .border-zinc-300 {
+  border-color: rgb(71 85 105) !important;
+}
+
+.dark .border-gray-500 {
+  border-color: rgb(100 116 139) !important;
+}
+
+.active hr {
+  @apply block;
+}
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
+@media (max-width: 740px) {
+  .active p {
+    @apply text-white bg-primary;
+  }
+}

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    @apply hidden;
+}
+
+*{
+    font-family: Outfit;
+}
+
+body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+}
+
+.dark body,
+.dark #root {
+    @apply bg-slate-950 text-slate-100;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-gray-700 {
+    color: rgb(226 232 240) !important;
+}
+
+.dark .text-gray-800,
+.dark .text-gray-900 {
+    color: rgb(255 255 255) !important;
+}
+
+.dark .bg-white {
+    background-color: rgb(15 23 42) !important;
+}
+
+.dark .border-gray-300,
+.dark .border-gray-400,
+.dark .border-gray-500 {
+    border-color: rgb(71 85 105) !important;
+}

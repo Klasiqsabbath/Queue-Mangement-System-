@@ -1,0 +1,55 @@
+services:
+  - type: web
+    name: prescripto-backend
+    env: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLOUDINARY_NAME
+        value: demo_cloud
+      - key: CLOUDINARY_API_KEY
+        value: demo_cloud
+      - key: CLOUDINARY_API_SECRET
+        value: demo_cloud
+
+  - type: static
+    name: prescripto-client
+    plan: free
+    region: oregon
+    rootDir: clientside
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://prescripto-backend.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: static
+    name: prescripto-admin
+    plan: free
+    region: oregon
+    rootDir: admin
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://prescripto-backend.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
